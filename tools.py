@@ -6,7 +6,7 @@ def timer(func, *args, **kwargs):
         before = time()
         rv = func(*args, **kwargs)
         after = time()
-        print(f'{func.__name__} executed in {after - before} s')
+        print(f'{func.__name__}({args=}, {kwargs=}) executed in {after - before} s')
         return rv
     return f
 
@@ -16,6 +16,6 @@ def counter(func, *args, **kwargs):
     def f(*args, **kwargs):
         rv = func(*args, **kwargs)
         func._count += 1
-        print(f'{func.__name__} has been called {func._count} times')
+        print(f'{func.__name__}({args=}, {kwargs=}) has been called {func._count} times')
         return rv
     return f
